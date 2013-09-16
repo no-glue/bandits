@@ -17,7 +17,9 @@ class TestAlgorithm{
 		$arms=array();
 
 		foreach($probabilities as $probability){
-			$arms=new \bandits\ZeroOneArm(...);
+			$arms=new \bandits\ZeroOneArm(
+				$probability
+			);
 		}
 
 		$numSims=(int)fgets($instream);
