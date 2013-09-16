@@ -4,14 +4,25 @@ namespace bandits;
 
 class TestAlgorithm{
 	public function testAlgorithm(
-		$algorithm='',
-		$arms='',
-		$numSums=0,
-		$horizon=0
+		$instream
 	){
+		$algorithm=fgets($instream);
+
 		$algorithm=new $algorithm;
 
-				
+		$probabilities=fgets($instream);
+		
+		$probabilities=explode(',',$probabilities);
+
+		$arms=array();
+
+		foreach($probabilities as $probability){
+			$arms=new \bandits\ZeroOneArm(...);
+		}
+
+		$numSims=(int)fgets($instream);
+
+		$horizon=(int)fgets($instream);
 
 		$width=$numSims*$horizon;
 
@@ -45,11 +56,13 @@ class TestAlgorithm{
 		}
 
 		return array(
+			$instream,
 			$sumNums,
 			$times,
 			$chosenArms,
 			$rewards,
-			$cumulativeRewards
+			$cumulativeRewards,
+			$instream
 		);
 	}
 }
