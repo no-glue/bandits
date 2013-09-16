@@ -16,8 +16,10 @@ class TestAlgorithm{
 
 		$arms=array();
 
+		$arm=fgets($instream);
+
 		foreach($probabilities as $probability){
-			$arms=new \bandits\ZeroOneArm(
+			$arms=new $arm(
 				$probability
 			);
 		}
@@ -57,14 +59,36 @@ class TestAlgorithm{
 			$algorithm->update($chosenArm,$reward);
 		}
 
+		$file=fgets($instream);
+
+		$file=fgets($key);
+
 		return array(
-			$instream,
-			$sumNums,
-			$times,
-			$chosenArms,
-			$rewards,
-			$cumulativeRewards,
-			$instream
+			'instream'=>$instream,
+			'callback'=>function(
+				$array,
+				$for='w'
+				) use (
+					$file,
+					$key
+				){
+				$handle=fopen($file,$for);
+
+				fwrite(
+					$handle,
+					array_implode(
+						',',
+						$array[$key]
+					)
+				);
+
+				fclose($handle);
+			},
+			'sumNums'=>$sumNums,
+			'times'=>$times,
+			'chosenArms'=>$chosenArms,
+			'rewards'=>$rewards,
+			'cumulativeRewards'=>$cumulativeRewards
 		);
 	}
 }
