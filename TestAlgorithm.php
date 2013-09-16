@@ -84,7 +84,7 @@ class TestAlgorithm{
 
 				fclose($handle);
 			},
-			'sumNums'=>$sumNums,
+			'simNums'=>$simNums,
 			'times'=>$times,
 			'chosenArms'=>$chosenArms,
 			'rewards'=>$rewards,
