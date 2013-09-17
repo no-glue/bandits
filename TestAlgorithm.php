@@ -6,17 +6,17 @@ class TestAlgorithm{
 	public function testAlgorithm(
 		$instream
 	){
-		$algorithm=fgets($instream);
+		$algorithm=trim(fgets($instream));
 
 		$algorithm=new $algorithm;
 
-		$probabilities=fgets($instream);
+		$probabilities=trim(fgets($instream));
 		
 		$probabilities=explode(',',$probabilities);
 
 		$arms=array();
 
-		$arm=fgets($instream);
+		$arm=trim(fgets($instream));
 
 		foreach($probabilities as $probability){
 			$arms=new $arm(
@@ -24,9 +24,9 @@ class TestAlgorithm{
 			);
 		}
 
-		$numSims=(int)fgets($instream);
+		$numSims=(int)trim(fgets($instream));
 
-		$horizon=(int)fgets($instream);
+		$horizon=(int)trim(fgets($instream));
 
 		$width=$numSims*$horizon;
 
@@ -59,9 +59,9 @@ class TestAlgorithm{
 			$algorithm->update($chosenArm,$reward);
 		}
 
-		$file=fgets($instream);
+		$file=trim(fgets($instream));
 
-		$key=fgets($key);
+		$key=trim(fgets($key));
 
 		return array(
 			'instream'=>$instream,
