@@ -61,7 +61,7 @@ class TestAlgorithm{
 
 		$file=fgets($instream);
 
-		$file=fgets($key);
+		$key=fgets($key);
 
 		return array(
 			'instream'=>$instream,
@@ -84,7 +84,7 @@ class TestAlgorithm{
 
 				fclose($handle);
 			},
-			'simNums'=>$simNums,
+			'numSims'=>$numSims,
 			'times'=>$times,
 			'chosenArms'=>$chosenArms,
 			'rewards'=>$rewards,
