@@ -138,7 +138,7 @@ class TestAlgorithm{
 
 				fwrite(
 					$handle,
-					array_implode(
+					implode(
 						',',
 						$array[$key]
 					)
