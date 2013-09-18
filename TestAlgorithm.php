@@ -7,17 +7,32 @@ class TestAlgorithm{
 		$instream,
 		$namespace='\\bandits\\'
 	){
-		$algorithm=$namespace.trim(fgets($instream));
+		$algorithm=$namespace.trim(
+			fgets(
+				$instream
+			)
+		);
 
 		$algorithm=new $algorithm;
 
-		$probabilities=trim(fgets($instream));
+		$probabilities=trim(
+			fgets(
+				$instream
+			)
+		);
 		
-		$probabilities=explode(',',$probabilities);
+		$probabilities=explode(
+			',',
+			$probabilities
+		);
 
 		$arms=array();
 
-		$arm=$namespace.trim(fgets($instream));
+		$arm=$namespace.trim(
+			fgets(
+				$instream
+			)
+		);
 
 		foreach($probabilities as $probability){
 			$arms=new $arm(
@@ -25,20 +40,52 @@ class TestAlgorithm{
 			);
 		}
 
-		$numSims=(int)trim(fgets($instream));
+		$numSims=(int)trim(
+			fgets(
+				$instream
+			)
+		);
 
-		$horizon=(int)trim(fgets($instream));
+		$horizon=(int)trim(
+			fgets(
+				$instream
+			)
+		);
 
 		$width=$numSims*$horizon;
 
-		$chosenArms=range(0,$width,0);
-		$rewards=range(0,$width,0);
-		$cumulativeRewards=range(0,$width,0);
-		$simNums=range(0,$width,0);
-		$times=range(0,$width,0);
+		$chosenArms=array_pad(
+			array(),
+			$width,
+			0
+		);
+		$rewards=array_pad(
+			array(),
+			$width,
+			0
+		);
+		$cumulativeRewards=array_pad(
+			array(),
+			$width,
+			0
+		);
+		$simNums=array_pad(
+			array(),
+			$width,
+			0
+		);
+		$times=array_pad(
+			array(),
+			$width,
+			0
+		);
 
 		for($i=0;$i<$numSims;$i++){
-			$algorithm->initialize(count($arms));
+			$algorithm->initialize(
+				count(
+					$arms
+				)
+			);
 
 			for($j=0;$j<$horizon;$j++){
 				$index=$i*$horizon+$j;
@@ -57,12 +104,23 @@ class TestAlgorithm{
 					$reward;
 			}
 
-			$algorithm->update($chosenArm,$reward);
+			$algorithm->update(
+				$chosenArm,
+				$reward
+			);
 		}
 
-		$file=trim(fgets($instream));
+		$file=trim(
+			fgets(
+				$instream
+			)
+		);
 
-		$key=trim(fgets($key));
+		$key=trim(
+			fgets(
+				$key
+			)
+		);
 
 		return array(
 			'instream'=>$instream,
@@ -73,7 +131,10 @@ class TestAlgorithm{
 					$file,
 					$key
 				){
-				$handle=fopen($file,$for);
+				$handle=fopen(
+					$file,
+					$for
+				);
 
 				fwrite(
 					$handle,

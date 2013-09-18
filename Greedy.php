@@ -4,9 +4,9 @@ namespace bandits;
 
 class Greedy{
 	public function __construct(
-		$probability,
-		$counts,
-		$values
+		$probability=0.3,
+		$counts=array(),
+		$values=array()
 	){
 		$this->probability=$probability;
 		$this->counts=$counts;
@@ -14,14 +14,14 @@ class Greedy{
 	}
 
 	public function initialize($narms){
-		$this->counts=range(
-			0,
+		$this->counts=array_pad(
+			$this->counts,
 			$narms,
 			0
 		);
 
-		$this->values=range(
-			0,
+		$this->values=array_pad(
+			$this->values,
 			$narms,
 			0
 		);
@@ -40,7 +40,10 @@ class Greedy{
 			);
 	}
 
-	public function update($chosenArm,$reward){
+	public function update(
+		$chosenArm,
+		$reward
+	){
 		$this->counts[$chosenArm]+=1;
 		
 		$n=$this->counts[$chosenArm];
