@@ -35,7 +35,7 @@ class TestAlgorithm{
 		);
 
 		foreach($probabilities as $probability){
-			$arms=new $arm(
+			$arms[]=new $arm(
 				$probability
 			);
 		}
@@ -90,7 +90,7 @@ class TestAlgorithm{
 			for($j=0;$j<$horizon;$j++){
 				$index=$i*$horizon+$j;
 
-				$sumNums[$index]=$i;
+				$simNums[$index]=$i;
 				$times[$index]=$j;
 
 				$chosenArm=$algorithm->selectArm();
@@ -146,7 +146,7 @@ class TestAlgorithm{
 
 				fclose($handle);
 			},
-			'numSims'=>$numSims,
+			'simNums'=>$simNums,
 			'times'=>$times,
 			'chosenArms'=>$chosenArms,
 			'rewards'=>$rewards,
