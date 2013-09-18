@@ -1,8 +1,8 @@
 TestAlgorithm
 testAlgorithm
-\\bandits\\Greedy
+Greedy
 0.1,0.2,0.3
-\\bandits\\ZeroOneArm
+ZeroOneArm
 1
 1
 GreedyCumulative

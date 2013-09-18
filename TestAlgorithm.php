@@ -4,9 +4,10 @@ namespace bandits;
 
 class TestAlgorithm{
 	public function testAlgorithm(
-		$instream
+		$instream,
+		$namespace='\\bandits\\'
 	){
-		$algorithm=trim(fgets($instream));
+		$algorithm=$namespace.trim(fgets($instream));
 
 		$algorithm=new $algorithm;
 
@@ -16,7 +17,7 @@ class TestAlgorithm{
 
 		$arms=array();
 
-		$arm=trim(fgets($instream));
+		$arm=$namespace.trim(fgets($instream));
 
 		foreach($probabilities as $probability){
 			$arms=new $arm(
