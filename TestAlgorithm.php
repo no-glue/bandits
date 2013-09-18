@@ -118,7 +118,7 @@ class TestAlgorithm{
 
 		$key=trim(
 			fgets(
-				$key
+				$instream
 			)
 		);
 
