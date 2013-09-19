@@ -5,5 +5,5 @@ Greedy
 ZeroOneArm
 1
 1
-GreedyCumulative
+bandits/GreedyCumulative
 cumulativeRewards
