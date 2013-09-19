@@ -60,6 +60,7 @@ class Softmax{
 			$random 
 			&& 
 			++$i
+			&&
 			count($probabilities)
 		){
 		}
