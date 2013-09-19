@@ -138,10 +138,12 @@ class TestAlgorithm{
 
 				fwrite(
 					$handle,
+					is_array($array[$key])?
 					implode(
 						',',
 						$array[$key]
-					)
+					):
+					$array[$key]
 				);
 
 				fclose($handle);
