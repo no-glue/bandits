@@ -99,8 +99,8 @@ class TestAlgorithm{
 				$reward=$arms[$chosenArms[$index]]->draw();
 				$rewards[$index]=$reward;
 
-				$cumulativeRewards=($j)?
-					$cumulativeRewards+$reward:
+				$cumulativeRewards[$index]=($index)?
+					$cumulativeRewards[$index-1]+$reward:
 					$reward;
 			}
 
