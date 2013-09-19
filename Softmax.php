@@ -58,10 +58,10 @@ class Softmax{
 			($cumulativeProbability+=array_shift($probabilities))
 			<=
 			$random 
-			&& 
-			++$i
 			&&
 			count($probabilities)
+			&&
+			++$i
 		){
 		}
 
