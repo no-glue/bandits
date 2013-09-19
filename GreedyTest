@@ -3,7 +3,7 @@ testAlgorithm
 Greedy
 0.1,0.2,0.3
 ZeroOneArm
-5000
+1000
 250
 bandits/GreedyCumulative
 cumulativeRewards
