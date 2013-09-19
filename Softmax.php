@@ -48,7 +48,7 @@ class Softmax{
 			$sum;
 		}
 
-		$random=mt_rand();
+		$random=mt_rand()/mt_getrandmax();
 
 		$cumulativeProbability=0;
 
