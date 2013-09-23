@@ -6,6 +6,7 @@ So far algorithms are
 
 - Greedy
 - Softmax
+- UCB (upper confidence bound)
 
 Example use - cat bandits/SoftmaxTest | index/Index.php
 
